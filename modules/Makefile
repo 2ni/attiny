@@ -3,7 +3,7 @@
 # install avr-gcc http://maxembedded.com/2015/06/setting-up-avr-gcc-toolchain-on-linux-and-mac-os-x/
 # from https://blog.ithasu.org/2014/12/blinking-a-digispark-without-arduino-ide/
 
-DEVICE     = attiny167           # See avr-help for all possible devices
+DEVICE     = attiny167           # avr35, see avr-help for all possible devices
 CLOCK      = 16000000           # 16Mhz
 OBJECTS    = main.o             # Add more objects for each .c file here
 

@@ -12,7 +12,7 @@
 
 // Digispark Internal LED
 #define PIN_LED     PB1
-#define DELAY_MS    500
+#define DELAY_MS    200
 
 int main(void) {
   // Init LED pin as output
