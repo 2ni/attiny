@@ -1,0 +1,9 @@
+[submodule "modules/libs/TinyWire"]
+	path = modules/libs/TinyWire
+	url = git@github.com:rambo/TinyWire.git
+[submodule "modules/libs/Arduino"]
+	path = modules/libs/Arduino
+	url = git@github.com:arduino/Arduino.git
+[submodule "lib/TinyWire"]
+	path = lib/TinyWire
+	url = https://github.com/rambo/TinyWire

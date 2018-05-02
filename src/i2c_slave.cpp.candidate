@@ -1,0 +1,72 @@
+/*
+ *
+ * pio lib install 1567
+ * based on https://github.com/puuu/USIWire
+ * and https://www.cron.dk/esp8266-on-batteries-for-years-part-3/ (https://github.com/x821938/UltraLowPower_WeatherStation/blob/master/AtTiny85/SlaveI2C.cpp)
+ *
+ * SDA -> PB0 / 0
+ * SCL -> PB2 / 2
+ *
+ */
+
+
+#include <Arduino.h>
+#include <USIWire.h>
+
+#define SLAVE_ADDR 0x50
+
+byte last_value=0;
+
+void blink() {
+  for(int i=0; i<3; i++) {
+    digitalWrite(LED_BUILTIN, HIGH);
+    delay(200);
+    digitalWrite(LED_BUILTIN, LOW);
+    delay(200);
+  }
+}
+
+/*
+ * Data is requested by master
+ */
+void requestEvent() {
+  // byte test = 12;
+  // Wire.write(test);
+  // return;
+
+  Wire.write(last_value);
+}
+
+/*
+ * Data is received from master
+ *
+ * on master (see wifisensor/modules/i2c_attiny.cpp):
+ * byte counter = 0;
+ * Wire.begin(SDA_PIN, SCL_PIN);
+ *
+ * Wire.beginTransmission(SLAVE_ADDR);
+ * Wire.write(counter);
+ * counter++;
+ * delay(1);
+ * Wire.endTransmission();
+ * Wire.requestFrom(SLAVE_ADDR, 1);
+ * if (Wire.available()) {
+ *   byte received = Wire.read();
+ *   DF("received: %i\n", received)
+ * }
+ */
+void receiveEvent(int howMany) {
+  last_value = Wire.read();
+}
+
+void setup() {
+  Wire.begin(SLAVE_ADDR);
+  Wire.onRequest(requestEvent); // data is requested by master
+  Wire.onReceive(receiveEvent); // data is received from master
+
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+
+void loop() {
+}
