@@ -1,6 +1,6 @@
 [submodule "modules/libs/TinyWire"]
-	path = modules/libs/TinyWire
+	path = i2c/attiny167/modules/libs/TinyWire
 	url = git@github.com:rambo/TinyWire.git
 [submodule "modules/libs/Arduino"]
-	path = modules/libs/Arduino
+	path = i2c/attiny167/modules/libs/Arduino
 	url = git@github.com:arduino/Arduino.git
