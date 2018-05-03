@@ -4,3 +4,6 @@
 [submodule "modules/libs/Arduino"]
 	path = i2c/attiny167/modules/libs/Arduino
 	url = git@github.com:arduino/Arduino.git
+[submodule "micronucleus/micronucleus"]
+	path = micronucleus/micronucleus
+	url = https://github.com/micronucleus/micronucleus
