@@ -1,9 +1,19 @@
-# Links
-see garduino/wifisensor/attiny85/README.md
+Communication by I2C between esp8266 and attiny167 based on Wire.h and USIWire.h
+
+- Arduino environment
+- compiling using platformio
+- attiny167 is loaded with micronucleus (digispark PRO)
+
+# compile and flash attiny167
+cd i2c/attiny167
+make flash
+<connect attiny to usb when asked>
+
+# Useful links
 http://electronut.in/getting-started-with-attiny85-avr-programming/
 https://digistump.com/wiki/digispark/tutorials/debugging
 
-# Links i2c
+# Useful links i2c
 https://github.com/nadavmatalon/TinyWireS
 https://github.com/DzikuVx/attiny_photoresistor_i2c
 pio lib info 1567
@@ -15,7 +25,7 @@ cd micronucleus/commandline
 make
 sudo make install
 
-# Upgrade Attiny
+# Upgrade attiny
 cd micronucleus/upgrade/releases
 micronucleus --run upgrade-t167_default.hex
 <connect attiny to usb when asked>
@@ -30,14 +40,10 @@ pio init --board digispark-pro
 pio update
 pio lib update
 
-# Compile with platformio / flash with micronucleus
-cd digistump/
-make flash
-<connect attiny to usb when asked>
-
-# Compile with avr-gcc / flash with micronucleus
-(see also modules/Makefile)
-cd digistump/modules
+# Compile with avr-gcc (native) / flash with micronucleus
+WORK IN PROGRESS
+(see also i2c/attiny167/modules/Makefile)
+cd i2c/attiny167/modules
 make flash
 
 # i2c with platformio & attiny85 works
@@ -45,7 +51,3 @@ based on https://arduino.stackexchange.com/questions/9658/arduino-uno-master-and
 with TinyWire
 use TinyWire from git and copy subfolder TinyWireS to lib. pio lib tynwire does not work with attiny167
 set board = digispark-tiny on platformio.ini
-
-# i2c with platoformio & attiny167 works
-based on https://github.com/x821938/UltraLowPower_WeatherStation/blob/master/AtTiny85/
-see src/i2c_slave.cpp with UISWire

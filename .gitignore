@@ -1,5 +1,3 @@
-.pioenvs
-.piolibdeps
 *.swp
 *.elf
 *.hex
